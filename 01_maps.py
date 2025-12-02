@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 # Read in the data
-full_data = gpd.read_file("./data/01/DEC_lands/DEC_lands.shp")
+full_data = gpd.read_file("data/inputs/01/DEC_lands/DEC_lands.shp")
 
 data = full_data.loc[:, ["CLASS", "COUNTY", "geometry"]].copy()
 
@@ -17,15 +17,15 @@ wild_lands.plot()
 plt.show()
 
 # Campsites in New York state (Point)
-POI_data = gpd.read_file("./data/01/DEC_pointsinterest/Decptsofinterest.shp")
+POI_data = gpd.read_file("data/inputs/01/DEC_pointsinterest/Decptsofinterest.shp")
 campsites = POI_data.loc[POI_data.ASSET=='PRIMITIVE CAMPSITE'].copy()
 
 # Foot trails in New York state (LineString)
-roads_trails = gpd.read_file("./data/01/DEC_roadstrails/DEC_roadstrails/Decroadstrails.shp")
+roads_trails = gpd.read_file("data/inputs/01/DEC_roadstrails/DEC_roadstrails/Decroadstrails.shp")
 trails = roads_trails.loc[roads_trails.ASSET=='FOOT TRAIL'].copy()
 
 # County boundaries in New York state (Polygon)
-counties = gpd.read_file("./data/01/NY_county_boundaries/NY_county_boundaries/NY_county_boundaries.shp")
+counties = gpd.read_file("data/inputs/01/NY_county_boundaries/NY_county_boundaries/NY_county_boundaries.shp")
 
 # Define a base map with county boundaries
 ax = counties.plot(figsize=(10,10), color='none', edgecolor='gainsboro', zorder=3)

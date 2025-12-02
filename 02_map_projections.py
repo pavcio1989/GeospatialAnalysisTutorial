@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 
 
 # Load a GeoDataFrame containing regions in Ghana
-regions = gpd.read_file("./data/02/Regions/Map_of_Regions_in_Ghana.shp")
+regions = gpd.read_file("data/inputs/02/Regions/Map_of_Regions_in_Ghana.shp")
 print(regions.crs)  # EPSG:32630 - Mercator projection
 
 # Create a DataFrame with health facilities in Ghana
-facilities_df = pd.read_csv("./data/02/health_facilities.csv")
+facilities_df = pd.read_csv("data/inputs/02/health_facilities.csv")
 
 # Convert the DataFrame to a GeoDataFrame
 facilities = gpd.GeoDataFrame(facilities_df, geometry=gpd.points_from_xy(facilities_df.Longitude, facilities_df.Latitude))
